@@ -1,0 +1,102 @@
+/* src/pages/Emergency.css */
+
+.emergency-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.emergency-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #d62828;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #333;
+}
+
+select,
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button[type="submit"] {
+  background-color: #d62828;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background-color: #a31b1b;
+}
+
+button[type="button"] {
+  background-color: #6c757d;
+  color: white;
+}
+
+button[type="button"]:hover {
+  background-color: #5a6268;
+}
+
+.results {
+  margin-top: 30px;
+}
+
+.result-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.result-item h3 {
+  margin: 0 0 10px;
+  color: #2a2a2a;
+}
+
+.result-item p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #555;
+}
+
+.result-item button {
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+}
+
+.result-item button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
