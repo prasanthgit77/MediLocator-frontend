@@ -11,8 +11,10 @@ const Emergency = () => {
   const [results, setResults] = useState([]);
   const [error, setError] = useState('');
 
+  const BASE_URL = 'https://medilocator-backend.onrender.com';
+
   useEffect(() => {
-    axios.get('http://localhost:8080/api/addresses')
+    axios.get(`${BASE_URL}/api/addresses`)
       .then(res => setAllAddresses(res.data))
       .catch(err => console.error('Address fetch error:', err));
   }, []);
@@ -39,7 +41,7 @@ const Emergency = () => {
     setError('');
     setResults([]);
     try {
-      const res = await axios.get('http://localhost:8080/api/emergency', {
+      const res = await axios.get(`${BASE_URL}/api/emergency`, {
         params: { type: emergencyType, location }
       });
       if (res.data.length === 0) {

@@ -12,11 +12,13 @@ const AboutMedicine = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  const BASE_URL = 'https://medilocator-backend.onrender.com';
+
   // Fetch medicine names for suggestions
   useEffect(() => {
     const fetchMedicines = async () => {
       try {
-        const res = await axios.get('http://localhost:8080/api/medicines');
+        const res = await axios.get(`${BASE_URL}/api/medicines`);
         setAllMedicines(res.data);
       } catch (err) {
         console.error('Error fetching medicine names:', err);
@@ -51,7 +53,7 @@ const AboutMedicine = () => {
     setInfo(null);
 
     try {
-      const res = await axios.get(`http://localhost:8080/api/medicine-info/${trimmedName}`);
+      const res = await axios.get(`${BASE_URL}/api/medicine-info/${trimmedName}`);
       setInfo(res.data);
     } catch (err) {
       console.error('🔴 API Error:', err);

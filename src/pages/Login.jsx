@@ -9,6 +9,8 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  const BASE_URL = 'https://medilocator-backend.onrender.com';
+
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
@@ -17,11 +19,11 @@ const Login = () => {
     e.preventDefault();
     setError('');
     try {
-      const res = await axios.post('http://localhost:8080/api/auth/login', credentials);
+      const res = await axios.post(`${BASE_URL}/api/auth/login`, credentials);
 
       // ✅ Store JWT and name in localStorage
       localStorage.setItem('token', res.data.token);
-      localStorage.setItem('username', credentials.name); // ✅ Use entered name
+      localStorage.setItem('username', credentials.name);
 
       navigate('/');
     } catch (err) {

@@ -9,6 +9,8 @@ const Signup = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  const BASE_URL = 'https://medilocator-backend.onrender.com';
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -17,7 +19,7 @@ const Signup = () => {
     e.preventDefault();
     setError('');
     try {
-      await axios.post('http://localhost:8080/api/auth/register', formData);
+      await axios.post(`${BASE_URL}/api/auth/register`, formData);
       alert('Signup successful! You can login now.');
       navigate('/login');
     } catch (err) {

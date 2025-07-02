@@ -18,11 +18,13 @@ const FindMedicine = () => {
   const isLoggedIn = !!localStorage.getItem('token');
   const username = localStorage.getItem('username');
 
+  const BASE_URL = 'https://medilocator-backend.onrender.com';
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const medRes = await axios.get('http://localhost:8080/api/medicines');
-        const areaRes = await axios.get('http://localhost:8080/api/areas');
+        const medRes = await axios.get(`${BASE_URL}/api/medicines`);
+        const areaRes = await axios.get(`${BASE_URL}/api/areas`);
         setAllMedicines(medRes.data);
         setAllAreas(areaRes.data);
       } catch (err) {
@@ -66,7 +68,7 @@ const FindMedicine = () => {
     e.preventDefault();
     setError('');
     try {
-      const res = await axios.get('http://localhost:8080/api/pharmacies', {
+      const res = await axios.get(`${BASE_URL}/api/pharmacies`, {
         params: { medicine, area },
       });
       if (res.data.length === 0) {
